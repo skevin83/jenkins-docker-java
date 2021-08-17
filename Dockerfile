@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 EXPOSE 22
 RUN adduser --quiet --system jenkins && \
-    echo "12345678" | chpasswd && \
+    echo "jenkins:jenkins" | chpasswd && \
     mkdir -p /home/jenkins/.m2
 COPY .ssh/authorized_keys /home/jenkins/.ssh/authorized_keys
 RUN chown -R jenkins:jenkins /home/jenkins/.m2/
