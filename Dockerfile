@@ -3,7 +3,7 @@ EXPOSE 22
 RUN adduser --quiet --system jenkins && \
     echo "jenkins:jenkins" | chpasswd && \
     mkdir -p /home/jenkins/.m2
-COPY .ssh/authorized_keys /home/jenkins/.ssh/authorized_keys
+COPY authorized_keys /home/jenkins/.ssh/authorized_keys
 RUN chown -R jenkins:jenkins /home/jenkins/.m2/
 RUN chown -R jenkins:jenkins /home/jenkins/.ssh/
 WORKDIR /home/jenkins
